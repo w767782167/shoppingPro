@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+#imgsize{
+	width:218px;
+	height:218px;
+}
+#imgsize img{
+	width:100%;
+	height:100%;
+}

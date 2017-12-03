@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!--支付接口配置文件  -->
+   <servlet>
+    <servlet-name>PayServlet</servlet-name>
+    <servlet-class>zxfpay.servlet.PayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BackServlet</servlet-name>
+    <servlet-class>zxfpay.servlet.BackServlet</servlet-class>
+  </servlet>
+
+	
+  <servlet-mapping>
+    <servlet-name>PayServlet</servlet-name>
+    <url-pattern>/payServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BackServlet</servlet-name>
+    <url-pattern>/backServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>

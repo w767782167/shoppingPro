@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5" metadata-complete="false">
+  <display-name>Ebuy</display-name>
+  <welcome-file-list>
+    <welcome-file>admin/login.jsp</welcome-file>  
+  </welcome-file-list>
+ 
+  
+  <!-- 添加对spring的支持 -->  
+  <context-param>  
+    <param-name>contextConfigLocation</param-name>  
+    <param-value>classpath:applicationContext.xml</param-value>  
+  </context-param>  
+    
+    <!-- 定义Spring监听器，加载Spring  -->
+    <listener>  
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener>  
+      
+  <!-- 添加对struts2的支持 -->  
+  <filter>  
+    <filter-name>struts2</filter-name>  
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+  </filter>   
+  
+  <filter-mapping>  
+    <filter-name>struts2</filter-name>  
+    <url-pattern>/*</url-pattern>  
+  </filter-mapping>  
+  
+  <!-- Session延迟加载到页面  --> 
+   <filter>  
+    <filter-name>openSessionInViewFilter</filter-name>  
+    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>  
+    <init-param>  
+      <param-name>singleSession</param-name>  
+      <param-value>true</param-value>  
+    </init-param>  
+  </filter>  
+    
+   <filter-mapping>  
+    <filter-name>openSessionInViewFilter</filter-name>  
+    <url-pattern>*.action</url-pattern>  
+  </filter-mapping>  
+  
+  <filter>  
+       <filter-name>springUtf8Encoding</filter-name>  
+       <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+       <init-param>  
+           <param-name>encoding</param-name>  
+           <param-value>UTF-8</param-value>  
+       </init-param>  
+       <init-param>  
+           <param-name>forceEncoding</param-name>  
+           <param-value>true</param-value>  
+       </init-param>   
+    </filter>  
+    <filter-mapping>  
+       <filter-name>springUtf8Encoding</filter-name>  
+       <url-pattern>/*</url-pattern>  
+   </filter-mapping> 
+</web-app>
